@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Password Strength Analyzer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="topbar">
+    <button id="themeToggle">🌙 Toggle Theme</button>
+</div>
+
+<div class="container">
+    <div class="card">
+        <h2>🔐 Password Strength Analyzer</h2>
+
+        <form method="POST">
+            <input type="text" name="username" placeholder="Username" required>
+
+            <div class="password-box">
+                <input type="password" id="password" name="password" placeholder="Password" required>
+                <span id="togglePassword">👁</span>
+            </div>
+
+            <!-- Live meter -->
+            <div class="meter">
+                <div id="meterBar"></div>
+            </div>
+            <p id="meterText"></p>
+
+            <button type="submit">Analyze Password</button>
+        </form>
+
+        {% if result %}
+        <div class="result">
+            <h3>Result</h3>
+
+            <div class="strength {{ result.strength|lower }}">
+                {{ result.strength }}
+            </div>
+
+            <p><b>Entropy:</b> {{ result.entropy }} bits</p>
+
+            {% if result.reused %}
+                <p class="error">❌ Password already used before!</p>
+            {% endif %}
+
+            {% if result.feedback %}
+                <ul>
+                {% for f in result.feedback %}
+                    <li>{{ f }}</li>
+                {% endfor %}
+                </ul>
+            {% endif %}
+
+            {% if result.suggestion %}
+                <div class="suggestion">
+                    <code id="suggestedPwd">{{ result.suggestion }}</code>
+                    <button id="copyBtn">Copy</button>
+                </div>
+            {% endif %}
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

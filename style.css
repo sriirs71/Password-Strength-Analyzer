@@ -1,0 +1,96 @@
+:root{
+    --bg:#0f2027;
+    --card:#ffffff;
+    --text:#333;
+}
+
+body.dark{
+    --bg:#0f2027;
+    --card:#1e2a33;
+    --text:#f5f5f5;
+}
+
+body{
+    margin:0;
+    font-family:Arial, Helvetica, sans-serif;
+    background:linear-gradient(120deg,#0f2027,#203a43,#2c5364);
+    height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--text);
+}
+
+.topbar{
+    position:absolute;
+    top:15px;
+    right:20px;
+}
+
+.container{ width:100%; max-width:520px; }
+
+.card{
+    background:var(--card);
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.3);
+}
+
+input{
+    width:100%;
+    padding:12px;
+    margin-bottom:12px;
+    border-radius:6px;
+    border:1px solid #ccc;
+}
+
+button{
+    padding:10px 12px;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+.password-box{
+    position:relative;
+}
+
+#togglePassword{
+    position:absolute;
+    right:10px;
+    top:10px;
+    cursor:pointer;
+}
+
+.meter{
+    height:8px;
+    background:#ddd;
+    border-radius:6px;
+    margin-bottom:6px;
+}
+
+#meterBar{
+    height:8px;
+    width:0%;
+    border-radius:6px;
+    transition:0.3s;
+}
+
+.strength{
+    padding:8px;
+    text-align:center;
+    border-radius:6px;
+    color:white;
+    margin-bottom:10px;
+}
+.weak{background:#e74c3c;}
+.moderate{background:#f39c12;}
+.strong{background:#27ae60;}
+
+.suggestion{
+    display:flex;
+    gap:10px;
+    align-items:center;
+}
+
+.error{ color:red; font-weight:bold; }
