@@ -53,11 +53,11 @@ bash
 git clone https://github.com/your-username/password-strength-analyzer.git
 cd password-strength-analyzer
 
-Install requirements
+2. Install requirements
 
 pip install -r requirements.txt
 
-Run the application
+3. Run the application
 python app.py
 
 4. Open in browser
